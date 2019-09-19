@@ -42,11 +42,21 @@ class ListComponent extends Component {
     }
     filterPageContent = (edx) => {
         let i = (edx - 1) * 5;
+        let fu = []
         var fa = this.state.entries
         if (this.state.entries) {
             if (i == 0) i = 5
             fa = fa.slice(i, i + 5)
             this.setState({ filtered: fa })
+        }
+        if (edx > 2) {
+            for (let j = edx - 2; j < edx + 3; j++) {
+                fu.push(j)
+            }
+            this.setState({
+                pages: fu
+            })
+
         }
     }
 
